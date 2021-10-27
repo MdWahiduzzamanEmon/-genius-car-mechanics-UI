@@ -5,13 +5,13 @@ const AddServices = () => {
     const { register, handleSubmit,reset } = useForm();
     const onSubmit = (data) => {
         axios
-          .post("http://localhost:5000/services", data)
-            .then((res) => {
-                if (res.data.insertedId) {
-                    alert("Service added successfully");
-                    reset();
-                }
-            });
+          .post("https://shielded-temple-19599.herokuapp.com/services", data)
+          .then((res) => {
+            if (res.data.insertedId) {
+              alert("Service added successfully");
+              reset();
+            }
+          });
         
     };
 

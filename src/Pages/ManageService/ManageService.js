@@ -8,20 +8,24 @@ const ManageService = () => {
     // const [name,setName]=React.useState()
     // const [price,setPrice]=React.useState()
     React.useEffect(() => {
-        axios.get("http://localhost:5000/services/")
-            .then(res => {
-                setServices(res.data)
-            })
+        axios
+          .get("https://shielded-temple-19599.herokuapp.com/services/")
+          .then((res) => {
+            setServices(res.data);
+          });
     }, []);
     const handleDelete = (id) => {
-        axios.delete(`http://localhost:5000/services/${id}`)
-            .then(res => {
-                if (res.data.deletedCount === 1) {
-                    alert("delete one item successfully!!!");
-                    const restService = services.filter(service => service._id !== id);
-                    setServices(restService);
-                }
-            })
+        axios
+          .delete(`https://shielded-temple-19599.herokuapp.com/services/${id}`)
+          .then((res) => {
+            if (res.data.deletedCount === 1) {
+              alert("delete one item successfully!!!");
+              const restService = services.filter(
+                (service) => service._id !== id
+              );
+              setServices(restService);
+            }
+          });
     }
     //-------------------------------------
     // const [service, setService] = React.useState({});

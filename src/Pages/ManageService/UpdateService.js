@@ -9,7 +9,9 @@ const UpdateService = () => {
 
     React.useEffect(() => {
       axios
-        .get(`http://localhost:5000/services/${serviceId}`)
+        .get(
+          `https://shielded-temple-19599.herokuapp.com/services/${serviceId}`
+        )
         .then((res) => setService(res.data));
     }, []);
     // console.log(service);
@@ -39,13 +41,16 @@ const UpdateService = () => {
     const handleSubmit = (e) => {
       e.preventDefault();
       axios
-        .put(`http://localhost:5000/services/${serviceId}`, service)
+        .put(
+          `https://shielded-temple-19599.herokuapp.com/services/${serviceId}`,
+          service
+        )
         .then((res) => {
-            if (res.data.matchedCount === 1) {
-                alert("Update successfully!!!");
-                e.target.reset();
-                setService({});
-            }
+          if (res.data.matchedCount === 1) {
+            alert("Update successfully!!!");
+            e.target.reset();
+            setService({});
+          }
         });
     //   console.log(service);
     };

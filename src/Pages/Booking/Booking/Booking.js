@@ -5,8 +5,11 @@ const Booking = () => {
     const { serviceId } = useParams();
     const [service, setService] = React.useState({})
     React.useEffect(() => {
-        axios.get(`http://localhost:5000/services/${serviceId}`)
-        .then(res=>setService(res.data))
+        axios
+          .get(
+            `https://shielded-temple-19599.herokuapp.com/services/${serviceId}`
+          )
+          .then((res) => setService(res.data));
     },[])
     return (
         <div>
